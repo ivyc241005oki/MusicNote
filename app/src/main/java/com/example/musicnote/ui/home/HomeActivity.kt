@@ -3,27 +3,49 @@ package com.example.musicnote.ui.home
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.musicnote.databinding.ActivityHomeBinding
+import com.example.musicnote.ui.song.SongAdapter
 import com.example.musicnote.viewmodel.SongViewModel
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
     private val songViewModel: SongViewModel by viewModels()
+    private lateinit var favoriteAdapter: SongAdapter
+    private lateinit var recentAdapter: SongAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // お気に入り曲を観察
+        // お気に入りAdapter
+        favoriteAdapter = SongAdapter { song ->
+            // TODO: 曲詳細画面へ遷移
+        }
+        binding.rvFavorites.layoutManager = LinearLayoutManager(this)
+        binding.rvFavorites.adapter = favoriteAdapter
+
+        // 最近追加Adapter
+        recentAdapter = SongAdapter { song ->
+            // TODO: 曲詳細画面へ遷移
+        }
+        binding.rvRecentSongs.layoutManager = LinearLayoutManager(this)
+        binding.rvRecentSongs.adapter = recentAdapter
+
+        // データを観察
         songViewModel.favoriteSongs.observe(this) { songs ->
-            // TODO: RecyclerViewに表示
+            favoriteAdapter.updateSongs(songs)
         }
 
-        // 全曲を観察
         songViewModel.allSongs.observe(this) { songs ->
-            // TODO: RecyclerViewに表示
+            recentAdapter.updateSongs(songs)
+        }
+
+        // FABボタン
+        binding.fab.setOnClickListener {
+            // TODO: 曲登録画面へ遷移
         }
     }
 }

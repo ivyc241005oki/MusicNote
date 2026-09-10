@@ -42,9 +42,9 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.9.0")
 
     // Room
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
-    ksp("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-runtime:2.7.1")
+    implementation("androidx.room:room-ktx:2.7.1")
+    ksp("androidx.room:room-compiler:2.7.1")
 
     // ViewModel / LiveData
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
