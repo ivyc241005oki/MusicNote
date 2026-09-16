@@ -11,6 +11,7 @@ import com.example.musicnote.ui.playlist.PlaylistActivity
 import com.example.musicnote.ui.song.SongAdapter
 import com.example.musicnote.ui.song.SongCreateActivity
 import com.example.musicnote.ui.song.SongDetailActivity
+import com.example.musicnote.ui.song.SongListActivity
 import com.example.musicnote.viewmodel.SongViewModel
 
 class HomeActivity : AppCompatActivity() {
@@ -63,7 +64,7 @@ class HomeActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_home -> true
                 R.id.nav_songs -> {
-                    startActivity(Intent(this, SongCreateActivity::class.java))
+                    startActivity(Intent(this, SongListActivity::class.java))
                     true
                 }
                 R.id.nav_playlist -> {

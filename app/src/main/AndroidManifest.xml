@@ -37,6 +37,10 @@
             android:name=".ui.playlist.PlaylistActivity"
             android:exported="false"/>
 
+        <activity
+            android:name=".ui.song.SongListActivity"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
