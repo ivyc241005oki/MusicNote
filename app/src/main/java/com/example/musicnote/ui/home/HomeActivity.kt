@@ -1,12 +1,16 @@
 package com.example.musicnote.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.musicnote.databinding.ActivityHomeBinding
 import com.example.musicnote.ui.song.SongAdapter
+import com.example.musicnote.ui.song.SongCreateActivity
 import com.example.musicnote.viewmodel.SongViewModel
+
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -45,7 +49,7 @@ class HomeActivity : AppCompatActivity() {
 
         // FABボタン
         binding.fab.setOnClickListener {
-            // TODO: 曲登録画面へ遷移
+            startActivity(Intent(this, SongCreateActivity::class.java))
         }
     }
 }
