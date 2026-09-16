@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.musicnote.databinding.ActivityHomeBinding
 import com.example.musicnote.ui.song.SongAdapter
 import com.example.musicnote.ui.song.SongCreateActivity
+import com.example.musicnote.ui.song.SongDetailActivity
 import com.example.musicnote.viewmodel.SongViewModel
 
 
@@ -26,14 +27,18 @@ class HomeActivity : AppCompatActivity() {
 
         // お気に入りAdapter
         favoriteAdapter = SongAdapter { song ->
-            // TODO: 曲詳細画面へ遷移
+            val intent = Intent(this, SongDetailActivity::class.java)
+            intent.putExtra("SONG_ID", song.id)
+            startActivity(intent)
         }
         binding.rvFavorites.layoutManager = LinearLayoutManager(this)
         binding.rvFavorites.adapter = favoriteAdapter
 
         // 最近追加Adapter
         recentAdapter = SongAdapter { song ->
-            // TODO: 曲詳細画面へ遷移
+            val intent = Intent(this, SongDetailActivity::class.java)
+            intent.putExtra("SONG_ID", song.id)
+            startActivity(intent)
         }
         binding.rvRecentSongs.layoutManager = LinearLayoutManager(this)
         binding.rvRecentSongs.adapter = recentAdapter
