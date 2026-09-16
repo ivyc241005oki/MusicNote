@@ -5,13 +5,13 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.musicnote.R
 import com.example.musicnote.databinding.ActivityHomeBinding
+import com.example.musicnote.ui.playlist.PlaylistActivity
 import com.example.musicnote.ui.song.SongAdapter
 import com.example.musicnote.ui.song.SongCreateActivity
 import com.example.musicnote.ui.song.SongDetailActivity
 import com.example.musicnote.viewmodel.SongViewModel
-
-
 
 class HomeActivity : AppCompatActivity() {
 
@@ -55,6 +55,23 @@ class HomeActivity : AppCompatActivity() {
         // FABボタン
         binding.fab.setOnClickListener {
             startActivity(Intent(this, SongCreateActivity::class.java))
+        }
+
+        // BottomNavigation
+        binding.bottomNav.selectedItemId = R.id.nav_home
+        binding.bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> true
+                R.id.nav_songs -> {
+                    startActivity(Intent(this, SongCreateActivity::class.java))
+                    true
+                }
+                R.id.nav_playlist -> {
+                    startActivity(Intent(this, PlaylistActivity::class.java))
+                    true
+                }
+                else -> false
+            }
         }
     }
 }

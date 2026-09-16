@@ -50,6 +50,15 @@
             android:layout_weight="1"
             android:padding="8dp"/>
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0E0D1A"
+            app:itemIconTint="#534AB7"
+            app:itemTextColor="#534AB7"
+            app:menu="@menu/bottom_nav_menu"/>
+
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -57,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
+        android:layout_margin="72dp"
         android:src="@android:drawable/ic_input_add"
         app:backgroundTint="#534AB7"/>
 

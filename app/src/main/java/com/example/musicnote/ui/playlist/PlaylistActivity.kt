@@ -32,6 +32,10 @@ class PlaylistActivity : AppCompatActivity() {
         binding.fab.setOnClickListener {
             showCreatePlaylistDialog()
         }
+        // 戻るボタン
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun showCreatePlaylistDialog() {
