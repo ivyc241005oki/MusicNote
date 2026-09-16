@@ -1,11 +1,13 @@
 package com.example.musicnote.ui.playlist
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.musicnote.databinding.ActivityPlaylistBinding
 import com.example.musicnote.viewmodel.PlaylistViewModel
+
 
 class PlaylistActivity : AppCompatActivity() {
 
@@ -19,7 +21,10 @@ class PlaylistActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         playlistAdapter = PlaylistAdapter { playlist ->
-            // TODO: プレイリスト詳細画面へ遷移
+            val intent = Intent(this, PlaylistDetailActivity::class.java)
+            intent.putExtra("PLAYLIST_ID", playlist.id)
+            intent.putExtra("PLAYLIST_NAME", playlist.name)
+            startActivity(intent)
         }
         binding.rvPlaylists.layoutManager = LinearLayoutManager(this)
         binding.rvPlaylists.adapter = playlistAdapter
